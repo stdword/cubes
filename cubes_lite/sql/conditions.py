@@ -63,8 +63,9 @@ class PointCondition(ConditionBase):
 
     def _evaluate(self, column):
         value = self.get_value()
-        conditions = [(column == v) for v in value]
-        return sql.expression.or_(*conditions)
+        if len(value) == 1:
+            return column == value[0]
+        return column.in_(value)
 
 
 class MatchCondition(ConditionBase):
