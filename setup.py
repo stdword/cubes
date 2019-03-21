@@ -10,7 +10,7 @@ requirements = [
 
 setup(
     name='cubes_lite',
-    version='0.1',
+    version='0.2',
 
     # Project uses reStructuredText, so ensure that the docutils get
     # installed or upgraded on the target machine
