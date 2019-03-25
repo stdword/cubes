@@ -63,8 +63,13 @@ class PointCondition(ConditionBase):
 
     def _evaluate(self, column):
         value = self.get_value()
+
+        if not value:
+            return sql.expression.or_()
+
         if len(value) == 1:
             return column == value[0]
+
         return column.in_(value)
 
 
