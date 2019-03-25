@@ -65,6 +65,8 @@ class PointCondition(ConditionBase):
         value = self.get_value()
 
         if not value:
+            # in some cases the value is an empty tuple.
+            # using empty or_() expression as a workaround
             return sql.expression.or_()
 
         if len(value) == 1:
